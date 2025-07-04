@@ -1,35 +1,87 @@
-# Products Frontend
+# Products Backend
 
-A simple React app that displays products fetched from a Spring Boot backend.
-
----
-
-## Prerequisites
-
-- **Node.js 20+**  
-
-Make sure your Spring Boot backend is running on:
-
- - http://localhost:5173/api/products
+A simple Spring Boot API that serves products data from a PostgreSQL database.
 
 ---
 
-## Set Up
+## 🚀 Prerequisites
 
-1.  Clone this repo:
+- **Java 17**  
 
-- git clone https://github.com/jvangore31/products-frontend.git
-- cd products-frontend
+- **Maven** 
 
-2. Install dependencies:
+- **PostgreSQL** 
 
-- npm install
+## Database setup
 
-3. Start the development server:
+1. Start PostgreSQL:
 
-- npm run dev
+- sudo service postgresql start
 
-Then open your browser at:
+2.  Log in to psql as the postgres user:
 
-- http://localhost:5173
+- sudo -u postgres psql
 
+3. Inside psql, create a database and user:
+
+CREATE DATABASE products_db;
+CREATE USER products_user WITH PASSWORD 'password';
+GRANT ALL PRIVILEGES ON DATABASE products_db TO products_user;
+
+4. Exit psql:
+
+ - \q
+
+In Application properties:
+
+- Edit your src/main/resources/application.properties:
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/products_db
+spring.datasource.username=products_user
+spring.datasource.password=password
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+🚀 Getting started
+
+1. Clone the repo:
+
+- git clone https://github.com/your-username/products-backend.git
+- cd products-backend
+
+2.  Build the project:
+
+- mvn clean install
+
+3.  Run the app:
+
+- mvn spring-boot:run
+
+The API will be available at:
+
+- http://localhost:8080/api/products
+
+Example CURL commands
+
+List all products:
+
+- curl -X GET http://localhost:8080/products
+
+
+Example SQL script
+
+If you want to manually insert some products in psql, run:
+
+\c products_db
+
+CREATE TABLE IF NOT EXISTS product (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(255)
+);
+
+INSERT INTO product (name) VALUES
+('Valve'),
+('Screw'),
+('Hat');
