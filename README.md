@@ -4,7 +4,7 @@ A simple Spring Boot API that serves products data from a PostgreSQL database.
 
 ---
 
-## 🚀 Prerequisites
+##  Prerequisites
 
 - **Java 17**  
 
