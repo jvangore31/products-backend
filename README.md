@@ -67,8 +67,13 @@ Example CURL commands
 
     List all products:
 
-        - curl -X GET http://localhost:8080/products
+        curl -X GET http://localhost:8080/api/products
 
+    Add Product:
+
+        curl -X POST http://localhost:8080/products \
+        -H "Content-Type: application/json" \
+        -d '{"name": "Test Product"}'
 
 Example SQL script
 
