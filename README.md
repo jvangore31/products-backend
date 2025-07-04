@@ -25,7 +25,7 @@ A simple Spring Boot API that serves products data from a PostgreSQL database.
 3. Inside psql, create a database and user:
 
     CREATE DATABASE products_db;
-    CREATE USER interview_user WITH PASSWORD 'password';
+    CREATE USER interview_user WITH PASSWORD 'mypassword';
     GRANT ALL PRIVILEGES ON DATABASE products_db TO interview_user;
 
 4. Exit psql:
