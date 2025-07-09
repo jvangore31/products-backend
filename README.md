@@ -32,6 +32,8 @@ A simple Spring Boot API that serves products data from a PostgreSQL database.
 
     - \q
 
+## App setup
+
 In Application properties:
 
     - Edit your src/main/resources/application.properties:
@@ -43,8 +45,6 @@ In Application properties:
         spring.jpa.hibernate.ddl-auto=update
         spring.jpa.show-sql=true
         spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-
-Set Up
 
 1. Clone the repo:
 
